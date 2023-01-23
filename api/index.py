@@ -32,9 +32,9 @@ class handler(BaseHTTPRequestHandler):
         repo_reg = re.compile(r'repo="(.*?)"')
         user_reg = re.compile(r'user="(.*?)"')
         branch_reg = re.compile(r'branch="(.*?)"')
+        users = path
         if user_reg.findall(path):
             user = user_reg.findall(path)[0]
-            result = 'The user is ' + user
         else:
             user = ''
         if repo_reg.findall(path):
@@ -51,4 +51,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         self.wfile.write(json.dumps(data).encode())
-        return
+        return users
