@@ -30,7 +30,7 @@ class handler(BaseHTTPRequestHandler):
         path = self.path
         path = path.replace("'", '"')
         repo_reg = re.compile(r'repo="(.*?)"')
-        user_reg = re.compile(r'user=(.*?)')
+        user_reg = re.compile(r'user="(.*?)"')
         branch_reg = re.compile(r'branch="(.*?)"')
         if user_reg.findall(path):
             user = user_reg.findall(path)[0]
