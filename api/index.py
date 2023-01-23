@@ -34,6 +34,7 @@ class handler(BaseHTTPRequestHandler):
         branch_reg = re.compile(r'branch="(.*?)"')
         if user_reg.findall(path):
             user = user_reg.findall(path)[0]
+            result = 'The user is ' + user
         else:
             user = ''
         if repo_reg.findall(path):
