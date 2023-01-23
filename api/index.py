@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 def github_json(user,repo,branch):
     if user =='':
-        result = 'The user cannot be none*************'
+        result = 'The user cannot be none!' + ', ' +user
     else:
         try:
             if repo =='':
@@ -32,7 +32,6 @@ class handler(BaseHTTPRequestHandler):
         repo_reg = re.compile(r'repo="(.*?)"')
         user_reg = re.compile(r'user="(.*?)"')
         branch_reg = re.compile(r'branch="(.*?)"')
-        users = path
         if user_reg.findall(path):
             user = user_reg.findall(path)[0]
         else:
@@ -51,4 +50,4 @@ class handler(BaseHTTPRequestHandler):
         self.send_header('Content-type', 'application/json')
         self.end_headers()
         self.wfile.write(json.dumps(data).encode())
-        return users
+        return
