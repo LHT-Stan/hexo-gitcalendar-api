@@ -16,7 +16,7 @@ def getdata(name):
     datacount = list(map(int, [0 if i == "No" else i for i in datacount]))
     contributions = sum(datacount)
     datalist = []
-    for index, item in enumerate(datadate):
+    for index,  item in enumerate(datadate):
         itemlist = {"date": item, "count": datacount[index]}
         datalist.append(itemlist)
     datalistsplit = list_split(datalist, 7)
